@@ -1,0 +1,750 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الوصول الشامل لذوي الإعاقة شركة NES جلوبال العربية</title>
+    <style>
+        header {
+            background-color: #f0f0f0;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #333;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        nav {
+            background-color: #e6e6e6;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #d1d1d1;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #ffffff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+            border-radius: 5px;
+        }
+
+        nav ul li:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #000000;
+            padding: 10px 20px;
+            display: block;
+            font-weight: normal;
+        }
+
+        .faq {
+            padding: 20px;
+            display: none;
+            font-size: 20px;
+        }
+
+        .footer .section {
+            width: 30%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .faq-question {
+            background-color: #d3d3d3;
+            color: #333;
+            padding: 10px;
+            cursor: pointer;
+            margin: 5px 0;
+            border: none;
+            text-align: right;
+            border-radius: 5px;
+            display: block;
+            min-height: 50px;
+            line-height: 30px;
+            width: 100%;
+            box-sizing: border-box;
+            font-size: 20px;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #f4f4f4;
+            border-radius: 5px;
+        }
+
+        video {
+            width: 50%;
+            max-width: 500px;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            text-align: right;
+        }
+
+        .footer img {
+            height: 25px;
+            margin: 10px;
+        }
+
+        .footer a {
+            color: #0077b5;
+            text-decoration: none;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+
+        .footer .icons-container {
+            display: flex;
+            justify-content: right;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .footer .icons-container a {
+            margin: 0 15px;
+        }
+
+        .footer .social-icons img {
+            height: 30px;
+            margin-left: 15px;
+        }
+
+        #aboutUsSection h2 {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+
+        #aboutUsSection p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            padding: 0 10px;
+            font-size: 20px;
+        }
+
+        #aboutUsSection {
+            padding: 20px;
+            background-image: url('خلفية.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .button {
+            padding: 10px 15px;
+            background-color: #f9f9e5;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            color: #333;
+            margin: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #d1d1d1;
+        }
+
+        #supportTicket {
+            display: none;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .success-message {
+            color: green;
+            display: none;
+        }
+
+        .goals {
+            display: none;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .goal-item {
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .goal-item img {
+            width: 500px;
+            height: 500px;
+            margin: 0;
+        }
+
+        .accessibility-tools {
+            position: fixed;
+            top: 50%;
+            left: -100px;
+            transform: translateY(-50%);
+            background-color: rgba(241, 241, 241, 0.8);
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: left 0.3s;
+            width: 100px;
+        }
+
+        .accessibility-tools:hover {
+            left: 10px;
+        }
+
+        .accessibility-tools h3 {
+            margin: 0 0 10px 0;
+            font-size: 16px;
+        }
+
+        .accessibility-tools button {
+            display: block;
+            width: 100%;
+            margin-bottom: 5px;
+            padding: 10px;
+            font-size: 14px;
+            cursor: pointer;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .accessibility-tools button:hover {
+            background-color: #218838;
+        }
+
+        #chatSupport {
+            display: none;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .about-content,
+        .vision-content,
+        .policy-content,
+        .message-content,
+        .structure-content,
+        .news-events-content {
+            display: none;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            margin-top: 20px;
+            text-align: center;
+            border-radius: 5px;
+        }
+
+        .grayscale {
+            filter: grayscale(100%);
+        }
+
+        .vision-content img {
+            width: 500px; /* تم تعديل العرض هنا */
+            margin-bottom: 10px;
+        }
+
+        .vision-content p {
+            text-align: center;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            direction: rtl;
+            text-align: right;
+            background-color: #f9f9e5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            transform: scale(1); /* مستوى التكبير الابتدائي */
+            transform-origin: top right; /* تحديد نقطة الأصل للتكبير */
+            transition: transform 0.2s; /* تأثير الانتقال عند التكبير */
+        }
+
+        main {
+            flex: 1;
+        }
+
+        footer {
+            background-color: #e6e6e6;
+            color: #333;
+            padding: 20px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .icons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .video-container {
+            max-width: 800px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .icons-container p {
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .icons-container img {
+            margin-right: 10px;
+        }
+
+        .midSection {
+            margin-top: 250px;
+            margin-right: 80px;
+            justify-content: flex-end;
+        }
+
+        .logos-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .resizable-logo {
+            width: 200px;
+            height: auto;
+            transition: transform 0.2s;
+        }
+
+        .resizable-logo:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="accessibility-tools">
+        <h3>أدوات تسهيلات الاستخدام</h3>
+        <button onclick="zoomIn()">🔍 تكبير</button>
+        <button onclick="zoomOut()">🔍 تصغير</button>
+        <button onclick="toggleGrayscale()">🎨 كتم اللون</button>
+    </div>
+
+    <header>
+        <img src="C:\Users\User\Desktop\NES\شعار الشركة بعد التعديل.png" alt="شعار يمين" style="height: 50px;">
+        <h1>الوصول الشامل لذوي الإعاقة شركة NES جلوبال العربية</h1>
+        <img src="C:\Users\User\Desktop\NES\رؤية 2030.png" alt="شعار يسار" style="height: 50px;">
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showHomePage()">الصفحة الرئيسية</a></li>
+            <li><a href="#" onclick="hideAboutUsSection()">عن NES</a>
+                <div class="dropdown-content">
+                    <a href="#" onclick="showInfo('vision'); return false;">رؤية الشركة</a>
+                    <a href="#" onclick="showInfo('values'); return false;">قيم الشركة</a>
+                    <a href="#" onclick="showInfo('message'); return false;">رسالة الشركة</a>
+                    <a href="#" onclick="showGoals(); return false;">أهداف الشركة</a>
+                    <a href="#" onclick="showInfo('policy'); return false;">سياسة الشركة</a>
+                    <a href="#" onclick="showInfo('structure'); return false;">الهيكل التنظيمي</a>
+                </div>
+            </li>
+            <li><a href="#" onclick="hideAboutUsSection()">المركز الإعلامي</a>
+                <div class="dropdown-content">
+                    <a href="#" onclick="showInfo('news'); return false;">الأخبار والفعاليات</a>
+                    <a href="#">مكتبة الصور</a>
+                    <a href="#">نشرة الشركة</a>
+                </div>
+            </li>
+            <li><a href="#" onclick="toggleFAQ()">الأسئلة الشائعة</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <section id="aboutUsSection">
+                <h2>نبذة عن NES جلوبال العربية</h2>
+                <p>NES جلوبال العربية المحدودة هو مشروع مشترك بين جلوبال السحيمي و NES، توفر من خلاله مجموعة كاملة من المواهب والكوادر الفنية المتميزة عالمياً المطلوبة للعمل في قطاعات النفط والغاز والطاقة والبنية التحتية والكيميائية وعلوم الحياة والسكك الحديدية في جميع أنحاء العالم.</p>
+                <p>ولا تقتصر خدمات الشركة على تقديم خدمة التوظيف التقليدية، لكن تتخطى ذلك إلى توفير مجموعة شاملة من حلول التوظيف المضمونة تتراوح بين إدارة الرواتب إلى التوظيف الكامل وكذلك إدارة عملية الاستعانة بمصادر خارجية.</p>
+                <p>أنشئت الشركة منذ أكثر من 35 عاماً ولديها أكثر من 40 مكتباً منتشرة في 26 دولة وأكثر من 500 موظف متخصص وطاقم من الاستشاريين المتميزين، كل ذلك يؤهلنا كي نكون قادرين على دعم عملائنا وتوفير جميع احتياجاتهم التوظيفية للكوادر البشرية ذات الكفاءة عالمياً كذلك نضمن توفير أفضل الفرص التوظيفية والمهنية للخبرات الطموحة والفريدة على مستوى المنطقة.</p>
+                <video width="100%" controls>
+                    <source src="C:\Users\User\Desktop\NES\مقطع الفيديو.mov" type="video/mp4">
+                    <source src="path-to-your-video.webm" type="video/webm">
+                    <source src="path-to-your-video.ogv" type="video/ogg">
+                    عذراً، متصفحك لا يدعم تشغيل الفيديو.
+                </video>
+            </section>
+
+            <div id="info" style="padding: 20px; background-color: #f0f0f0; border: 1px solid #ccc;"></div>
+
+            <div class="about-content" id="aboutSection">
+                <p>NES جلوبال العربية المحدودة هو مشروع مشترك بين جلوبال السحيمي و NES، توفر من خلاله مجموعة كاملة من المواهب والكوادر الفنية المتميزة عالمياً المطلوبة للعمل في قطاعات النفط والغاز والطاقة والبنية التحتية والكيميائية وعلوم الحياة والسكك الحديدية في جميع أنحاء العالم.</p>
+                <p>ولا تقتصر خدمات الشركة على تقديم خدمة التوظيف التقليدية، لكن تتخطى ذلك إلى توفير مجموعة شاملة من حلول التوظيف المضمونة تتراوح بين إدارة الرواتب إلى التوظيف الكامل وكذلك إدارة عملية الاستعانة بمصادر خارجية.</p>
+                <p>أنشئت الشركة منذ أكثر من 35 عاماً ولديها أكثر من 40 مكتباً منتشرة في 26 دولة وأكثر من 500 موظف متخصص وطاقم من الاستشاريين المتميزين، كل ذلك يؤهلنا كي نكون قادرين على دعم عملائنا وتوفير جميع احتياجاتهم التوظيفية للكوادر البشرية ذات الكفاءة عالمياً كذلك نضمن توفير أفضل الفرص التوظيفية والمهنية للخبرات الطموحة والفريدة على مستوى المنطقة.</p>
+                <button onclick="toggleVisibility('aboutSection')">إغلاق</button>
+            </div>
+
+            <div class="vision-content" id="visionSection">
+                <img src="C:\Users\User\Desktop\NES\الرؤية جديد.jpeg""\القيم جديد.png" alt="شعار رؤية الشركة" style="width: 500px;"> <!-- تم تعديل العرض هنا -->
+                <button onclick="toggleVisibility('visionSection')">إغلاق</button>
+            </div>
+
+            <div id="valuesSection" class="values-content" style="display: none; padding: 20px; background-color: #ffffff; border: 1px solid #ccc; margin-top: 20px; text-align: center; border-radius: 5px;">
+                <h3></h3>
+                <img src="C:\Users\User\Desktop\NES\القيم.png" alt="" style="width: 400px; height: auto; margin-bottom: 600px;">
+                <button onclick="toggleVisibility('valuesSection')">إغلاق</button>
+            </div>
+            
+            <div class="message-content" id="messageSection" style="display: none; padding: 20px; background-color: #ffffff; border: 1px solid #ccc; margin-top: 20px; text-align: center; border-radius: 5px;">
+                <img src="C:\Users\User\Desktop\NES\رسالة جديد.jpeg""\رسالة الشركة.png" alt="شعار رسالة الشركة" style="width: 500px; height: auto;">
+                <button onclick="toggleVisibility('messageSection')">إغلاق</button>
+            </div>
+            
+            <div class="goals" id="goalsSection">
+                <h3></h3>
+                <div class="goal-item">
+                    <img src="C:\Users\User\Downloads\الأهداف1-removebg-preview (1).png" alt="هدف 1" style="float: right; margin-left: 10px;">
+                </div>
+            </div>
+
+            <div class="policy-content" id="policySection" style="display: none; padding: 20px; background-color: #ffffff; border: 1px solid #ccc; margin-top: 20px; text-align: center; border-radius: 5px;">
+                <h3></h3>
+                <div class="policy-images">
+                    <a href="C:\Users\User\Desktop\NES\دليل وضوابط سياسات وبيئة عمل ذوي الاعاقة.pdf" target="_blank">
+                        <img src="C:\Users\User\Desktop\NES\شعار السياسة.png" alt="شعار 1" style="width: 300px; display: block; margin: 0 auto 10px;">
+                    </a>
+                    <a href="C:\Users\User\Desktop\NES\مع التوقيع_سياسة وضوابط التوظيف لذوي الإعاقة 2024.pdf" target="_blank">
+                        <img src="C:\Users\User\Desktop\NES\سياسة وضوابط التدريب.png" alt="شعار 2" style="width: 300px; display: block; margin: 0 auto;">
+                    </a>
+                </div>
+                <button onclick="toggleVisibility('policySection')">إغلاق</button>
+            </div>
+
+            <div class="structure-content" id="structureSection" style="display: none; padding: 20px; background-color: #ffffff; border: 1px solid #ccc; margin-top: 20px; text-align: center; border-radius: 5px;">
+                <h3>الهيكل التنظيمي</h3>
+                <img src="C:\Users\User\Desktop\NES\الهيكل التنظيمي.jpeg" alt="شعار الهيكل التنظيمي" style="width: 600px; height: auto;">
+                <button onclick="toggleVisibility('structureSection')">إغلاق</button>
+            </div>
+            
+            <div id="newsEventsSection" class="news-events-content" style="display: none; padding: 20px; background-color: #ffffff; border: 1px solid #ccc; margin-top: 20px; text-align: center; border-radius: 5px;">
+                <h2>قصص نجاح ملهمة</h2>
+                <p>هنا يمكنك استعراض قصص نجاح ملهمة لأشخاص تغلبوا على التحديات وحققوا إنجازات رائعة.</p>
+                <div class="logos-container">
+                    <img src="C:\Users\User\Desktop\NES\قصة سالم.jpeg" alt="شعار 1" class="resizable-logo">
+                    <img src="C:\Users\User\Desktop\NES\قصة علي.jpeg" alt="شعار 2" class="resizable-logo">
+                </div>
+                <button onclick="toggleVisibility('newsEventsSection')">إغلاق</button>
+            </div>
+
+            <section class="faq" style="display: none;">
+                <button class="faq-question" onclick="toggleAnswer(this)">هل يمكن تقديم خدمة تسجيل الشكاوئ والاقتراحات؟</button>
+                <div class="faq-answer">
+                    <p>نعم، حيث يمكن للموظف أو المستفيد من إرسال شكوى أو استفسار من خلال رفع تذكرة عبر الموقع، أو عبر البريد الإلكتروني.</p>
+                </div>
+                <button class="faq-question" onclick="toggleAnswer(this)">هل تم إتاحة طرق تنقل مناسبة؟</button>
+                <div class="faq-answer">
+                    <p>نعم، سعت المنشأة في تصميم البيئة الملائمة لذوي الإعاقة حيث وفرت لهم طرق تنقل تيسيرية بداخل المنشأة التي من خلالها سيتمتعون بسهولة التنقل بكل راحة.</p>
+                </div>
+
+                <button class="faq-question" onclick="toggleAnswer(this)">كيف يمكنني التقديم للوظائف؟</button>
+                <div class="faq-answer">
+                    <p>يمكنك التقديم عبر موقعنا الإلكتروني أو من خلال صفحة لينكد إن.</p>
+                </div>
+
+                <button class="faq-question" onclick="toggleAnswer(this)">هل يتم الأخذ باحتياجات ذوي الإعاقة في طلب بعض الإجراءات والخدمات التيسيرية؟</button>
+                <div class="faq-answer">
+                    <p>نعم، يتم إرسال لكل موظف ملتحق نموذج استبانة، من خلاله يتم الأخذ بكافة الإجراءات والخدمات التي يرغب بها والعمل على تحسينها بما يلائمه.</p>
+                </div>
+
+                <button class="faq-question" onclick="toggleAnswer(this)">هل يتم قبول متدربي التدريب التعاوني؟</button>
+                <div class="faq-answer">
+                    <p>نعم.</p>
+                </div>
+
+                <button class="faq-question" onclick="toggleAnswer(this)">ما هي شروط قبول متدربي التدريب التعاوني؟</button>
+                <div class="faq-answer">
+                    <p>أن يكون التدريب في فصل دراسياً كاملاً منفصلاً عن المقررات المكلف بها المتدرب.</p>
+                </div>
+
+                <button class="faq-question" onclick="toggleAnswer(this)">ما المزايا التي يحصل على عليها متدربي التدريب التعاوني؟</button>
+                <div class="faq-answer">
+                    <p>صرف مكافأة شهرية، بالإضافة إلى ذلك وثيقة إتمام التدريب التعاوني بالمدة المقرر بها.</p>
+                </div>
+
+                <button class="faq-question" onclick="toggleAnswer(this)">هل يتم قبول الخريجين للتدريب على رأس العمل (تمهير)؟</button>
+                <div class="faq-answer">
+                    <p>نعم، تتيح المنشأة فرص التدريب على رأس العمل من خلال برنامج تمهير.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="footer">
+                <div class="section">
+                    <div class="icons-container">
+                        <p>
+                            <img src="C:\Users\User\Desktop\NES\لتذييل الصفحة\الايميل.webp" alt="البريد">
+                            <a href="mailto:Info@nesgt.com">Info@nesgt.com</a>
+                        </p>
+                        <p>
+                            <img src="C:\Users\User\Desktop\NES\لتذييل الصفحة\الهاتف.png" alt="الهاتف">
+                            <a href="tel:+966135125767">6767 512 13 966+</a>
+                        </p>
+                        <p>
+                            <a href="https://maps.app.goo.gl/TiAE59FS6dqcxmLt5" target="_blank">
+                                <img src="C:\Users\User\Desktop\NES\لتذييل الصفحة\موقع-removebg-preview.png" alt="شعار الموقع">
+                            </a>
+                        </p>
+                        <p>
+                            <a href="https://www.nesfircroft.com/" target="_blank">
+                                <img src="C:\Users\User\Desktop\NES\لتذييل الصفحة\شعار الويب.png" alt="شعار الويب">
+                            </a>
+                        </p>
+                        <p>
+                            <a href="https://www.linkedin.com/company/nes-fircroft/" target="_blank">
+                                <img src="C:\Users\User\Desktop\NES\لتذييل الصفحة\لينكد إن.webp" alt="لينكد إن">
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="midSection">
+                        <div>
+                            <button class="button" margin:5px>التوظيف</button>
+                            <button class="button" onclick="toggleVisibility('supportTicket')">الشكاوى والاقتراحات</button>
+                        </div>
+                        <div id="supportTicket">
+                            <h3>الشكاوى والاقتراحات</h3>
+                            <a href="https://forms.gle/zvmW3bTUjSdmh2gSA" target="_blank">إرسال شكوى أو اقتراح</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="video-container">
+                        <h2>الدعم الفني بلغة الإِشارة</h2>
+                        <video controls>
+                            <source src="https://deaf.dga.gov.sa/assets/videos/amer_introduction.mp4" type="video/mp4">
+                            متصفحك لا يدعم تشغيل الفيديو.
+                        </video>
+                        <div id="teams-link">
+                            <p>للتواصل مع الدعم الفني بلغة الإشارة</p>
+                            <a href="https://teams.microsoft.com/l/chat/0/0?users=qassem.alkhamis@nesfircroft.com" target="_blank">انقر هنا</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <p>&copy; جميع الحقوق محفوظة شركة إن إي إٍس 2024.</p>
+        </footer>
+
+        <script>
+            let zoomLevel = 1; // مستوى التكبير
+            const scaleFactor = 0.1; // عامل التكبير أو التصغير
+
+            function toggleAnswer(button) {
+                const answer = button.nextElementSibling;
+                answer.style.display = answer.style.display === "block" ? "none" : "block";
+            }
+
+            function toggleFAQ() {
+                const faq = document.querySelector('.faq');
+                const aboutUsSection = document.querySelector('#aboutUsSection');
+
+                faq.style.display = faq.style.display === "block" ? "none" : "block";
+                // Hide the About Us section when FAQ is shown
+                aboutUsSection.style.display = "none"; // Hide About Us section
+            }
+
+            function showInfo(section) {
+                const aboutSection = document.getElementById('aboutSection');
+                const infoDiv = document.getElementById('info');
+                const goalsSection = document.getElementById('goalsSection');
+                const visionSection = document.getElementById('visionSection');
+                const policySection = document.getElementById('policySection');
+                const messageSection = document.getElementById('messageSection'); 
+                const structureSection = document.getElementById('structureSection'); 
+                const newsEventsSection = document.getElementById('newsEventsSection');
+
+                aboutSection.style.display = 'none';
+                goalsSection.style.display = 'none';
+                visionSection.style.display = 'none';
+                policySection.style.display = 'none';
+                messageSection.style.display = 'none';
+                structureSection.style.display = 'none';
+                newsEventsSection.style.display = 'none'; 
+                infoDiv.innerHTML = '';
+
+                switch (section) {
+                    case 'about':
+                        aboutSection.style.display = 'block';
+                        break;
+                    case 'vision':
+                        visionSection.style.display = 'block';
+                        break;
+                    case 'values':
+                        valuesSection.style.display = 'block'; 
+                        break;
+                    case 'policy':
+                        policySection.style.display = 'block';
+                        break;
+                    case 'structure':
+                        structureSection.style.display = 'block'; 
+                        break;
+                    case 'message': 
+                        messageSection.style.display = 'block';
+                        break;
+                    case 'news': 
+                        newsEventsSection.style.display = 'block';
+                        break;
+                }
+            }
+
+            function showGoals() {
+                const goalsSection = document.getElementById('goalsSection');
+                goalsSection.style.display = goalsSection.style.display === 'block' ? 'none' : 'block';
+            }
+
+            function toggleVisibility(id) {
+                const element = document.getElementById(id);
+                element.style.display = element.style.display === "block" ? "none" : "block";
+            }
+
+            function submitTicket() {
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+
+                document.getElementById('successMessage').style.display = "block";
+                document.getElementById('supportTicket').reset();
+            }
+
+            function zoomIn() {
+                zoomLevel += scaleFactor; // زيادة مستوى التكبير
+                document.body.style.transform = `scale(${zoomLevel})`; // تطبيق التكبير
+            }
+
+            function zoomOut() {
+                zoomLevel = Math.max(0.1, zoomLevel - scaleFactor); // تقليل مستوى التكبير ولكن لا يمكن أن يصبح أقل من 0.1
+                document.body.style.transform = `scale(${zoomLevel})`; // تطبيق التصغير
+            }
+
+            function toggleGrayscale() {
+                document.body.classList.toggle("grayscale");
+            }
+
+            function showHomePage() {
+                const homePage = document.querySelector('#aboutUsSection');
+                homePage.style.display = "block"; 
+                const faq = document.querySelector('.faq');
+                faq.style.display = "none"; 
+            }
+
+            function hideAboutUsSection() {
+                const aboutUsSection = document.querySelector('#aboutUsSection');
+                aboutUsSection.style.display = "none"; 
+            }
+
+            const logos = document.querySelectorAll('.resizable-logo');
+            logos.forEach(logo => {
+                logo.addEventListener('mouseover', () => {
+                    document.querySelectorAll('.zoom-button').forEach(button => button.style.display = 'inline-block');
+                });
+                logo.addEventListener('mouseout', () => {
+                    document.querySelectorAll('.zoom-button').forEach(button => button.style.display = 'none');
+                });
+            });
+        </script>
+</body>
+
+</html>
